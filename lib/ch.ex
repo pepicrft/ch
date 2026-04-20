@@ -7,6 +7,8 @@ defmodule Ch do
           | {:username, String.t()}
           | {:password, String.t()}
           | {:settings, Keyword.t()}
+          | {:session_id, String.t()}
+          | {:session_timeout, pos_integer()}
           | {:timeout, timeout}
 
   @type start_option ::
@@ -30,6 +32,8 @@ defmodule Ch do
     * `:username` - Username
     * `:password` - User password
     * `:settings` - Keyword list of ClickHouse settings
+    * `:session_id` - HTTP session identifier
+    * `:session_timeout` - HTTP session timeout in seconds
     * `:timeout` - HTTP receive timeout in milliseconds
     * `:transport_opts` - options to be given to the transport being used. See `Mint.HTTP1.connect/4` for more info
     * [`DBConnection.start_option()`](https://hexdocs.pm/db_connection/DBConnection.html#t:start_option/0)
@@ -71,6 +75,8 @@ defmodule Ch do
     * `:username` - Username
     * `:password` - User password
     * `:settings` - Keyword list of settings
+    * `:session_id` - HTTP session identifier
+    * `:session_timeout` - HTTP session timeout in seconds
     * `:timeout` - Query request timeout
     * `:command` - Command tag for the query
     * `:headers` - Custom HTTP headers for the request
